@@ -16,7 +16,7 @@ def access():
     client.messages.create(
         to=config.TO_PHONE, 
         from_=config.FROM_PHONE, 
-        body=config.MESSAGE % (config.CODES.get(code, 'Unknown (%s)' % code), datetime.now(config.DOOR_TZ).strftime('%H:%M %m/%d/%y'))
+        body=config.MESSAGE % (config.CODES.get(code, 'Unknown (%s)' % code), datetime.now(config.DOOR_TZ).strftime('%I:%M %p %m/%d/%y'))
     )
     return Response(status=200)
 
