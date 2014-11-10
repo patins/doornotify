@@ -11,6 +11,8 @@ client = TwilioRestClient(config.ACCOUNT_SID, config.AUTH_TOKEN)
 def access():
     key = request.form.get('KEY', '')
     code = request.form.get('CODE', '')
+    if len(code) == 0:
+        return Response(status=200)
     if key != config.KEY:
         return Response(status=501)
     client.messages.create(
